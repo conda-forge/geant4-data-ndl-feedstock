@@ -1,6 +1,6 @@
 {% set dataset_name = "NDL" %}
-{% set version = "4.5" %}
-{% set sha256 = "ff9e231d75b0df23c7cc55cabf8b998615decfc51f4a3d7c670828d878e8b71c" %}
+{% set version = "4.6" %}
+{% set sha256 = "9d287cf2ae0fb887a2adce801ee74fb9be21b0d166dab49bcbee9408a5145408" %}
 {% set env_var = "G4NEUTRONHPDATA" %}
 {% set summary = "GEANT4 neutron data files with thermal cross-sections" %}
 
