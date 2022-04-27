@@ -1,5 +1,5 @@
 {% set dataset_name = "NDL" %}
-{% set version = "4.6" %}
+{% set version = "4.7" %}
 {% set env_var = "G4NEUTRONHPDATA" %}
 {% set summary = "GEANT4 neutron data files with thermal cross-sections" %}
 
@@ -7,21 +7,21 @@
 {% set install_dir = "share/Geant4/data/"+dataset_name+version %}
 
 package:
-    name: {{ name }}
-    version: {{ version }}
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-    url: https://geant4-data.web.cern.ch/geant4-data/datasets/G4{{ dataset_name }}.{{ version }}.tar.gz
-    sha256: 84eb5da8d1fa20c50238f66dbe970f51f5941de6cba192a3721ea1ddaebd1b1d
-    folder: dataset
+  url: https://geant4-data.web.cern.ch/geant4-data/datasets/G4{{ dataset_name }}.{{ version }}.tar.gz
+  sha256: 7e7d3d2621102dc614f753ad928730a290d19660eed96304a9d24b453d670309
+  folder: dataset
 
 build:
-    number: 0
-    noarch: generic
-    script:
-        - mkdir -p ${PREFIX}/{{ install_dir }}
-        - cp -r dataset/* ${PREFIX}/{{ install_dir }}
-        - ${RECIPE_DIR}/create_activation_scripts.sh {{ name }} {{ env_var }} {{ install_dir }}
+  number: 0
+  noarch: generic
+  script:
+    - mkdir -p ${PREFIX}/{{ install_dir }}
+    - cp -r dataset/* ${PREFIX}/{{ install_dir }}
+    - ${RECIPE_DIR}/create_activation_scripts.sh {{ name }} {{ env_var }} {{ install_dir }}
 
 # Conda-forge is unable to build packages that have no dependencies so add
 # `make` as a dummy build dependency
@@ -30,16 +30,16 @@ requirements:
     - make
 
 test:
-    commands:
-        - "[ \"${{ env_var }}\" == \"$CONDA_PREFIX/{{ install_dir }}\" ]"
+  commands:
+    - '[ "${{ env_var }}" == "$CONDA_PREFIX/{{ install_dir }}" ]'
 
 about:
-    home: https://geant4.web.cern.ch/
-    summary: '{{ summary }}'
-    license: OTHER
-    license_file: CREDIT
+  home: https://geant4.web.cern.ch/
+  summary: {{ summary }}
+  license: OTHER
+  license_file: CREDIT
 
 extra:
-    recipe-maintainers:
-        - tschoonj
-        - chrisburr
+  recipe-maintainers:
+    - tschoonj
+    - chrisburr
