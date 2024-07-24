@@ -1,5 +1,5 @@
 {% set dataset_name = "NDL" %}
-{% set version = "4.7" %}
+{% set version = "4.7.1" %}
 {% set env_var = "G4NEUTRONHPDATA" %}
 {% set summary = "GEANT4 neutron data files with thermal cross-sections" %}
 
