@@ -1,5 +1,5 @@
 {% set dataset_name = "NDL" %}
-{% set version = "4.7" %}
+{% set version = "4.7.1" %}
 {% set env_var = "G4NEUTRONHPDATA" %}
 {% set summary = "GEANT4 neutron data files with thermal cross-sections" %}
 
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://geant4-data.web.cern.ch/geant4-data/datasets/G4{{ dataset_name }}.{{ version }}.tar.gz
-  sha256: 7e7d3d2621102dc614f753ad928730a290d19660eed96304a9d24b453d670309
+  sha256: d3acae48622118d2579de24a54d533fb2416bf0da9dd288f1724df1485a46c7c
   folder: dataset
 
 build:
